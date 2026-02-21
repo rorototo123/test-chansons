@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sheet Viewer</title>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+iframe {
+  border: none;
+  transform-origin: top left;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <iframe id="sheet"
+    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTG0O00yrUAjGeliIVR0pQ737P8RTQnSJOlp2atLc7nTUp7S8e8dxqUiyM74nRoRFgW8s1OWsYdJiPx/pubhtml?gid=0&single=true">
+  </iframe>
+</div>
+
+<script>
+const sheetWidth = 1200; // change this to your sheet's real width
+
+function scaleSheet() {
+  const iframe = document.getElementById("sheet");
+  const scale = window.innerWidth / sheetWidth;
+
+  iframe.style.transform = `scale(${scale})`;
+  iframe.style.width = sheetWidth + "px";
+  iframe.style.height = (window.innerHeight / scale) + "px";
+}
+
+window.addEventListener("resize", scaleSheet);
+window.addEventListener("load", scaleSheet);
+</script>
+
+</body>
+</html>
+
+
+
+
+Affichage de site.html
